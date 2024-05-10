@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}  
+Delete user  
+{% endblock %}
+
+{% block content %}
+    <hr>
+    <form action="/delete" method="POST">
+        <table  class="table table-hover">
+          {% for rec in data %}
+          <tr> 
+            <td> {{ rec['userid']}}  </td> 
+            <td> {{ rec['username']}} </td>
+           <td>  {{ rec[2]}} </td>
+           <td>  <input type="radio" name="userid" value="{{ rec['userid']}}" >  </td>
+          </tr>
+          {% endfor %} 
+         <tr> 
+           <td colspan="4"> <center>
+           <input type="submit" value="Delete Selected User">
+           </center>
+           </td>
+         </tr>
+        </table>
+    </form>
+{% endblock %}

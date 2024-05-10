@@ -1,0 +1,204 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <title> 
+  {% block title %}
+  {% endblock %}
+  </title>
+  
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    /* Remove the navbar's default margin-bottom and rounded borders */ 
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+    
+   /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+    .row.content {height: 450px}
+    
+    /* Set gray background color and 100% height */
+    .sidenav {
+      padding-top: 20px;
+      background-color: sky blue;
+      height: 100%;
+    }
+     */
+    /* Set black background color, white text and some padding */
+    footer {
+      background-color: white;
+      color: white;
+      padding: 15px;
+    }
+    
+ /* On small screens, set height to 'auto' for sidenav and grid */
+    @media screen and (max-width: 767px) {
+      .sidenav {
+        height: auto;
+        padding: 15px;
+      }
+      .row.content {height:auto;} 
+    }
+.footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: BLACK;
+   color: white;
+   text-align: center;
+}
+.active {
+  background-color: BLACK;
+}
+  </style>
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: red;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+  </style>
+
+</head>
+<body>
+  
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="https://cdn.glitch.global/20b4cf7b-9f30-4aad-a032-e3606da364b1/pexels-uzunov-rostislav-5011647.jpg?v=1683197368074"></a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li style="float:left"><a class="active" href="#"><h3>
+          AIML PAGE
+          </h3></a></li>
+        <li><a href="/home"><i class="fa fa-fw fa-home"></i>Home</a></li>
+        <li><a href="#"><i class="fa fa-fw fa-search"></i>Search</a></li>
+        <li><a href="#"><i class="fa fa-fw fa-envelope"></i>Contact</a></li>
+        <li><a href="#">About</a></li>
+        
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a><span class="glyphicon "></span> {{session ["username"]}}</a></li>
+        
+        {% if session ["username"] %}
+        <li><a href="/logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+        {% else %}
+       <li><a href="/signup"><span class="glyphicon "></span> Sign Up</a></li>
+        <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        {% endif %}
+      </ul>
+    </div>
+  </div>
+</nav>
+  
+ <div class="container-fluid text-left">   
+  <div class="col content">
+    <div class="col-sm-2 sidenav">
+      <p><a href="/showdata"><h4>
+        Show Data
+        </h4></a></p>
+<!--       <p><a href="/signup"><h4>
+        Add User
+        </h4></a></p>  -->
+       <p><a href="/deluser"><h4>
+        Delete user
+        </h4></a></p>
+      <p><a href="/modify"><h4>
+        Modify user
+        </h4></a></p>
+    </div>
+    <div class="col-sm-10 text-left"> 
+     {% block content %}
+      
+     {% endblock %}
+    </div>
+
+  </div>
+</div>
+<style>
+body {
+  background-image: url('https://cdn.glitch.global/20b4cf7b-9f30-4aad-a032-e3606da364b1/pexels-johannes-plenio-1103970.jpg?v=1683201191874');
+  background-repeat: no-repeat;
+  background-attachment: fixed;  
+  background-size: cover;
+}
+</style>
+
+<div class="footer">
+  <p>@NIELIT</p>
+</div>
+</body>
+</html>

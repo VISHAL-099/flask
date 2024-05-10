@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+ <h1>
+   Signup
+</h1>
+    <form action="/add" method="post">
+    <table class="table table-hover">
+      <tr> 
+        <td> UserID  </td> 
+        <td> <input type="text" name="userid" id="userid"> </td>
+      </tr>
+       <tr> 
+        <td> UserName  </td> 
+        <td> <input type="text" name="username" id="username"> </td>
+      </tr>
+      <tr> 
+        <td> Email  </td> 
+        <td> <input type="text" name="useremail" id="useremail"> </td>
+      </tr>
+      <tr> 
+        <td> Password  </td> 
+        <td> <input type="password" name="userpasswd" id="userpasswd"> </td>
+      </tr>
+   
+      <tr>
+        <td> <input type="submit"></td>
+        <td> <input type="reset"></td>
+      </tr>
+    </table>
+      </form>
+{% endblock %}

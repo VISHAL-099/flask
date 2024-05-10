@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  text-align: center;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+    <h1>
+      SignUp Data 
+    </h1>
+   
+    <hr>
+    <table border="4">
+      <table style="width:50%">
+      {% for rec in data %}
+      
+      <tr>
+        <td>{{rec[0]}}</td>
+        <td>{{rec[1]}}</td>
+        <td>{{rec[2]}}</td>
+        <td>{{rec[3]}}</td>
+      </tr>
+      {% endfor %}
+      
+    </table>
+    <hr>
+
+{% endblock %}
